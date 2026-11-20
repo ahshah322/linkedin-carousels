@@ -253,12 +253,22 @@ def bar():
 
 BLOCKS = {"callout": callout, "heading": heading, "cards": cards, "sections": sections, "flow": flow, "takeaway": takeaway, "profile": profile}
 
+def watermark(spec):
+    g = spec.get("bg", spec.get("glyph", ""))
+    slug = g[5:] if g.startswith("logo:") else g
+    if not logo_path(slug):
+        return ""
+    sz = 1000
+    return (f'<svg width="{sz}" height="{sz}" viewBox="0 0 {sz} {sz}" style="position:absolute;left:40px;top:250px;opacity:.13;z-index:0" aria-hidden="true">'
+            + logo_svg(slug, 0, 0, sz, "#2BB8E0") + "</svg>")
+
 def slide(spec, s):
     ill = illus(s.get("illus", "laptop_code"), s.get("glyph", spec.get("glyph", "{ }")))
     main = "".join(BLOCKS[b["type"]](b) for b in s["blocks"])
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{FONTS} body{{margin:0}}</style></head><body>
 <div style="width:1080px;height:1350px;display:flex;flex-direction:column;background:linear-gradient(180deg,#FFFFFF 0%,#F6F9FF 100%);font-family:'Nunito',sans-serif;overflow:hidden;position:relative">
-<div style="flex:1;min-height:0;padding:40px 60px 20px;display:flex;flex-direction:column;gap:16px">
+{watermark(spec)}
+<div style="flex:1;min-height:0;padding:40px 60px 20px;display:flex;flex-direction:column;gap:16px;position:relative;z-index:1">
 {top(spec['tag'], spec['hex'])}
 {headline(s['title'][0], s['title'][1], s.get('hsize', 88), ill, s['sub'])}
 {main}

@@ -1,0 +1,110 @@
+{
+  "tag": "JavaScript · ES6+",
+  "hex": "JS",
+  "glyph": "JS",
+  "slides": [
+    {
+      "title": ["Modern", "JavaScript"],
+      "hsize": 96,
+      "illus": "clipboard",
+      "sub": "The **ES6+ features** every React dev uses.",
+      "blocks": [
+        {"type": "callout", "text": "React is just JavaScript. **Learn these 7 features first.**"},
+        {"type": "heading", "text": "What You'll Learn"},
+        {"type": "cards", "cols": 4, "items": [
+          {"color": "blue", "icon": "lock", "title": "1. let / const", "text": "Safer variables"},
+          {"color": "green", "icon": "zap", "title": "2. Arrow functions", "text": "Short callbacks"},
+          {"color": "orange", "icon": "box", "title": "3. Destructuring", "text": "Unpack props and state"},
+          {"color": "purple", "icon": "copy", "title": "4. Spread / Rest", "text": "Copy, merge, collect"},
+          {"color": "red", "icon": "list", "title": "5. map()", "text": "Turn data into JSX"},
+          {"color": "blue", "icon": "filter", "title": "6. filter()", "text": "Keep what matches"},
+          {"color": "green", "icon": "refresh", "title": "7. Promises", "text": "Handle async work"}
+        ]}
+      ]
+    },
+    {
+      "title": ["let, const &", "Arrow Functions"],
+      "hsize": 78,
+      "illus": "laptop_code",
+      "sub": "Two small changes: **safer, shorter code**.",
+      "blocks": [
+        {"type": "sections", "items": [
+          {"color": "blue", "title": "1. let & const", "text": "Use `const` by default. Use `let` only when it changes.",
+           "code": ["const name = \"Ali\";", "let count = 0;", "count = count + 1;", "// name = \"Sam\"  -> TypeError"]},
+          {"color": "green", "title": "2. Arrow functions", "text": "Shorter syntax for callbacks and components.",
+           "code": ["const add = (a, b) => a + b;", "", "const Hello = ({ name }) => (", "  <h1>Hello, {name}</h1>", ");"]}
+        ]},
+        {"type": "takeaway", "text": "Skip `var`. Arrow functions keep callbacks **short and clean**."}
+      ]
+    },
+    {
+      "title": ["Destructuring", "Spread & Rest"],
+      "hsize": 84,
+      "illus": "laptop_dark",
+      "sub": "Unpack, copy and merge **without mutating**.",
+      "blocks": [
+        {"type": "sections", "items": [
+          {"color": "orange", "title": "1. Destructuring", "text": "Pull values out of objects and arrays.",
+           "code": ["const { name, age } = user;", "const [count, setCount] = useState(0);"]},
+          {"color": "purple", "title": "2. Spread", "text": "Copy or merge into a new value.",
+           "code": ["const next = { ...user, age: 30 };", "const all = [...items, newItem];"]},
+          {"color": "blue", "title": "3. Rest", "text": "Collect what is left over.",
+           "code": ["const { id, ...others } = props;", "const [first, ...rest] = [1, 2, 3];"]}
+        ]},
+        {"type": "takeaway", "text": "Spread builds a **new object**. That keeps React state immutable."}
+      ]
+    },
+    {
+      "title": ["map() &", "filter()"],
+      "illus": "laptop_list",
+      "sub": "Both return a **new array**.",
+      "blocks": [
+        {"type": "sections", "items": [
+          {"color": "green", "title": "1. map()", "text": "Transform every item.",
+           "code": ["const names = users.map(u => u.name);"], "result": "Result: [\"Ali\", \"Sara\", \"Omar\"]"},
+          {"color": "orange", "title": "2. filter()", "text": "Keep only the items that match.",
+           "code": ["const on = users.filter(u => u.active);"], "result": "Result: only the active users"},
+          {"color": "blue", "title": "3. In JSX", "text": "Chain both to render a list.",
+           "code": ["users", "  .filter(u => u.active)", "  .map(u => <li key={u.id}>{u.name}</li>)"]}
+        ]},
+        {"type": "takeaway", "text": "Neither changes the original array. **Always add a key.**"}
+      ]
+    },
+    {
+      "title": ["Promises &", "async / await"],
+      "hsize": 84,
+      "illus": "laptop_async",
+      "sub": "Handle API calls **without freezing the UI**.",
+      "blocks": [
+        {"type": "flow", "seps": ["arrow", "or"], "items": [
+          {"color": "orange", "icon": "clock", "title": "Pending", "text": "Request in progress"},
+          {"color": "green", "icon": "check", "title": "Fulfilled", "text": "You get the data"},
+          {"color": "red", "icon": "x", "title": "Rejected", "text": "You get an error"}
+        ]},
+        {"type": "sections", "items": [
+          {"color": "blue", "title": "1. .then()", "text": "Chain steps one after another.",
+           "code": ["fetch(\"/api/users\")", "  .then(res => res.json())", "  .then(setUsers);"]},
+          {"color": "green", "title": "2. async/await", "text": "Same result, reads top to bottom.",
+           "code": ["async function load() {", "  const res = await fetch(\"/api/users\");", "  setUsers(await res.json());", "}"]}
+        ]},
+        {"type": "takeaway", "text": "Wrap `await` in **try / catch** for the rejected case."}
+      ]
+    },
+    {
+      "title": ["Putting It All", "Together"],
+      "hsize": 82,
+      "illus": "flow",
+      "sub": "One component using **every feature**.",
+      "blocks": [
+        {"type": "sections", "items": [
+          {"color": "purple", "title": "1. Render", "text": "const, arrow, destructuring, filter, map, spread.",
+           "code": ["const List = ({ users }) =>", "  users", "    .filter(u => u.active)", "    .map(u => <Card key={u.id} {...u} />);"]},
+          {"color": "blue", "title": "2. Load", "text": "Promises fetch the data.",
+           "code": ["useEffect(() => {", "  fetch(\"/api/users\")", "    .then(res => res.json())", "    .then(setUsers);", "}, []);"]}
+        ]},
+        {"type": "takeaway", "icon": "target", "label": "Your turn:", "text": "**Which feature do you use most?**"},
+        {"type": "profile"}
+      ]
+    }
+  ]
+}

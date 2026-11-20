@@ -258,8 +258,8 @@ def watermark(spec):
     slug = g[5:] if g.startswith("logo:") else g
     if not logo_path(slug):
         return ""
-    sz = 1000
-    return (f'<svg width="{sz}" height="{sz}" viewBox="0 0 {sz} {sz}" style="position:absolute;left:40px;top:250px;opacity:.13;z-index:0" aria-hidden="true">'
+    sz = 760
+    return (f'<svg width="{sz}" height="{sz}" viewBox="0 0 {sz} {sz}" style="position:absolute;right:-170px;top:-170px;opacity:.16;z-index:0" aria-hidden="true">'
             + logo_svg(slug, 0, 0, sz, "#2BB8E0") + "</svg>")
 
 def slide(spec, s):

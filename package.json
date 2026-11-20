@@ -1,1 +1,1 @@
-{"name":"linkedin-carousels","private":true,"dependencies":{"@fontsource/nunito":"*","@fontsource/dm-mono":"*"}}
+{"name":"linkedin-carousels","private":true,"dependencies":{"@fontsource/dm-mono":"*","@fontsource/nunito":"*","simple-icons":"^16.38.0"}}

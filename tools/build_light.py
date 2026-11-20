@@ -66,6 +66,26 @@ def rich(t):
     return t
 
 
+
+ICONS_DIR = f"{ROOT}/node_modules/simple-icons/icons"
+LOGO_COLORS = {"react": "#61DAFB"}  # brand colour on navy; others fall back to white
+
+def logo_path(slug):
+    f = f"{ICONS_DIR}/{slug}.svg"
+    if not os.path.exists(f):
+        return None
+    m = re.search(r'<path d="([^"]+)"', open(f).read())
+    return m.group(1) if m else None
+
+def logo_svg(slug, x, y, size, color=None):
+    """Brand logo from simple-icons, drawn in a size x size box at (x, y)."""
+    d = logo_path(slug)
+    if not d:
+        return ""
+    c = color or LOGO_COLORS.get(slug, "#FFFFFF")
+    sc = size / 24
+    return f'<g transform="translate({x},{y}) scale({sc})"><path d="{d}" fill="{c}"/></g>'
+
 # ---------- code highlighting (dark block) ----------
 KW = r"\b(function|return|const|let|var|import|from|export|default|if|else|new|true|false|null|async|await|try|catch|throw|class|of|in)\b"
 def hl(line):
@@ -96,6 +116,11 @@ def dots():
     return "".join(f'<circle cx="{330 + c * 16}" cy="{14 + r * 16}" r="2.2" fill="#B9C9F7"/>' for r in range(6) for c in range(5))
 
 def badge(txt, cx=345, cy=262, r=46):
+    if txt.startswith("logo:") and logo_path(txt[5:]):
+        sz = r * 1.25
+        return (f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{NAVY}" stroke="#fff" stroke-width="4"/>'
+                + logo_svg(txt[5:], cx - sz / 2, cy - sz / 2, sz))
+    txt = txt.replace("logo:", "")
     return f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{BLUE}"/><text x="{cx}" y="{cy + 13}" text-anchor="middle" font-family="DM Mono,monospace" font-weight="500" font-size="{38 if len(txt) < 3 else 30}" fill="#fff">{txt}</text>'
 
 def lines(x, y, rows, w=170, gap=20, cols=("#1E40E8", "#1F7A47", "#C2570A", "#5B3FC4")):
@@ -136,6 +161,10 @@ def illus(kind, glyph="{ }"):
 
 # ---------- building blocks ----------
 def hexagon(glyph):
+    if glyph.startswith("logo:") and logo_path(glyph[5:]):
+        return (f'<svg width="74" height="82" viewBox="0 0 74 82" aria-hidden="true"><path d="M37 3l31 17.5v41L37 79 6 61.5v-41L37 3z" fill="{NAVY}" stroke="#12296A" stroke-width="3"/>'
+                + logo_svg(glyph[5:], 14, 18, 46) + "</svg>")
+    glyph = glyph.replace("logo:", "")
     return (f'<svg width="74" height="82" viewBox="0 0 74 82" aria-hidden="true"><path d="M37 3l31 17.5v41L37 79 6 61.5v-41L37 3z" fill="{BLUE}" stroke="#12296A" stroke-width="3"/>'
             f'<text x="37" y="50" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="{26 if len(glyph) < 3 else 20}" fill="#fff">{E(glyph)}</text></svg>')
 

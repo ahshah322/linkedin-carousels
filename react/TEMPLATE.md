@@ -30,3 +30,10 @@ Label pills use darker solid colours with white text.
 
 ## Post text
 Short hook, what the slides cover, one question, 4 hashtags. Approved by Ali before anything is queued in Buffer.
+
+## Logos and illustrations
+- Every tag reads "React · <topic>" and the hexagon and slide badges use the real React logo.
+- Logos come from the `simple-icons` npm package (installed, no uploads needed). In a spec use `"glyph": "logo:<slug>"`, e.g. `logo:react`, `logo:vite`, `logo:redux`, `logo:typescript`, `logo:nextdotjs`, `logo:reactrouter`, `logo:reactquery`, `logo:reacthookform`, `logo:axios`, `logo:javascript`. A slide can override the glyph to show a topic logo.
+- Missing from simple-icons (e.g. Playwright): use a generic icon instead.
+- Illustration kind (clipboard, laptop_code, laptop_list, laptop_async, flow) is picked per slide to fit the content.
+- Status: template locked.

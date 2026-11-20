@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Class vs Struct: comparison</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&amp;family=DM+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width:1080px;height:1350px;box-sizing:border-box;padding:56px 72px;display:flex;flex-direction:column;background:radial-gradient(900px 620px at 100% 0%, rgba(106,69,255,0.30), rgba(10,10,18,0) 62%), #08070E;color:#fff;font-family:'Nunito',sans-serif;overflow:hidden">
+<div style="display:flex;justify-content:space-between;align-items:center;height:40px">
+<div style="display:flex;align-items:center;gap:14px"><div style="width:14px;height:14px;border-radius:50%;background:#FF4500;box-shadow:0 0 12px #FF4500"></div><span style="font:600 28px/1 'Nunito',sans-serif;letter-spacing:0.08em;color:#EAE5FF">.NET · C# FUNDAMENTALS</span></div>
+<span style="font:600 28px/1 'Nunito',sans-serif;color:#EAE5FF">4 / 5</span>
+</div>
+<h1 style="margin:30px 0 0 0;font:800 96px/1.05 'Nunito',sans-serif;color:#fff;text-shadow:0 10px 22px rgba(0,0,0,0.7),0 2px 4px rgba(0,0,0,0.6),0 0 38px rgba(139,108,255,0.40)">Side by side</h1>
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);column-gap:12px;margin-top:26px"><div></div><div><span style="display:inline-block;background:linear-gradient(180deg,#A78FFF,#6A45FF);color:#fff;box-shadow:0 12px 26px rgba(106,69,255,0.5),0 2px 4px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.45);font:700 28px/1 'Nunito',sans-serif;letter-spacing:0.08em;padding:14px 28px;border-radius:999px;">CLASS</span></div><div><span style="display:inline-block;background:linear-gradient(180deg,#FFFFFF,#DCD3FF);color:#120F26;box-shadow:0 12px 26px rgba(201,188,255,0.30),0 2px 4px rgba(0,0,0,0.55),inset 0 1px 0 #fff;font:700 28px/1 'Nunito',sans-serif;letter-spacing:0.08em;padding:14px 28px;border-radius:999px;">STRUCT</span></div></div>
+<div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-items:stretch"><div style="font:600 28px/1.3 'Nunito',sans-serif;color:#EAE5FF;padding:18px 0">Type</div><div style="background:linear-gradient(165deg,#241F44 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #8B6CFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Reference</div><div style="background:linear-gradient(165deg,#2B2740 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #C9BCFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Value</div></div>
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-items:stretch"><div style="font:600 28px/1.3 'Nunito',sans-serif;color:#EAE5FF;padding:18px 0">Assignment</div><div style="background:linear-gradient(165deg,#241F44 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #8B6CFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Copies the reference</div><div style="background:linear-gradient(165deg,#2B2740 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #C9BCFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Copies the value</div></div>
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-items:stretch"><div style="font:600 28px/1.3 'Nunito',sans-serif;color:#EAE5FF;padding:18px 0">Memory</div><div style="background:linear-gradient(165deg,#241F44 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #8B6CFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Heap</div><div style="background:linear-gradient(165deg,#2B2740 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #C9BCFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Inline in its owner or on the stack</div></div>
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-items:stretch"><div style="font:600 28px/1.3 'Nunito',sans-serif;color:#EAE5FF;padding:18px 0">Equality</div><div style="background:linear-gradient(165deg,#241F44 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #8B6CFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">By reference by default</div><div style="background:linear-gradient(165deg,#2B2740 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #C9BCFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">By value by default</div></div>
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-items:stretch"><div style="font:600 28px/1.3 'Nunito',sans-serif;color:#EAE5FF;padding:18px 0">Null</div><div style="background:linear-gradient(165deg,#241F44 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #8B6CFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Can be null</div><div style="background:linear-gradient(165deg,#2B2740 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #C9BCFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Cannot be null (use T?)</div></div>
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-items:stretch"><div style="font:600 28px/1.3 'Nunito',sans-serif;color:#EAE5FF;padding:18px 0">Inheritance</div><div style="background:linear-gradient(165deg,#241F44 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #8B6CFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Yes</div><div style="background:linear-gradient(165deg,#2B2740 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #C9BCFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Interfaces only</div></div>
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-items:stretch"><div style="font:600 28px/1.3 'Nunito',sans-serif;color:#EAE5FF;padding:18px 0">Best for</div><div style="background:linear-gradient(165deg,#241F44 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #8B6CFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Entities, services</div><div style="background:linear-gradient(165deg,#2B2740 0%,#13111F 100%);border-radius:24px;padding:18px 20px;font:500 28px/1.3 'Nunito',sans-serif;color:#fff;border-top:4px solid #C9BCFF;box-shadow:0 14px 20px -12px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.10)">Small, readonly values</div></div>
+</div>
+<div style="margin-top:24px;background:linear-gradient(165deg,#272141 0%,#16132A 100%);border:1px solid rgba(255,255,255,0.15);box-shadow:0 2px 4px rgba(0,0,0,0.55),0 14px 28px rgba(0,0,0,0.5),0 34px 60px -8px rgba(0,0,0,0.7),inset 0 1px 0 rgba(255,255,255,0.20);border-radius:32px;padding:24px 30px;display:flex;flex-direction:column;gap:8px"><span style="font:700 28px/1.2 'Nunito',sans-serif;letter-spacing:0.1em;color:#FF4500">RULE OF THUMB</span>
+<span style="font:500 30px/1.3 'Nunito',sans-serif;color:#fff">Default to class. Choose struct for a small value that acts like a single number.</span></div>
+<div style="display:flex;align-items:center;gap:18px;margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,0.14)">
+<div style="width:68px;height:68px;border-radius:50%;overflow:hidden;flex:none;border:3px solid #8B6CFF;box-sizing:border-box;background:#000;box-shadow:0 8px 16px rgba(0,0,0,0.6)"><img src="/_blob/a45dcb880c0ad2edaf859b44d8fac2dd" alt="Ali Husnain Shah" style="display:block;width:102px;height:auto;max-width:none;margin-left:-19px;margin-top:-2px"></div>
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font:800 30px/1.1 'Nunito',sans-serif;color:#fff">Ali Husnain Shah</span><span style="font:700 28px/1.1 'Nunito',sans-serif;color:#D2C6FF">@ahshah322</span></div>
+<div style="margin-left:auto"><div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(180deg,#FF6A33,#E03A00);box-shadow:0 10px 18px rgba(255,69,0,0.45),0 2px 4px rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;flex:none"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#08070E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1080,"height":1350}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

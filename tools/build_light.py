@@ -254,7 +254,7 @@ def bar():
 BLOCKS = {"callout": callout, "heading": heading, "cards": cards, "sections": sections, "flow": flow, "takeaway": takeaway, "profile": profile}
 
 def watermark(spec):
-    g = spec.get("bg", spec.get("glyph", ""))
+    g = spec.get("bg", "")  # watermark off unless a spec sets "bg"
     slug = g[5:] if g.startswith("logo:") else g
     if not logo_path(slug):
         return ""

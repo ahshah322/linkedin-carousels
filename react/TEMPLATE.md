@@ -37,4 +37,3 @@ Short hook, what the slides cover, one question, 4 hashtags. Approved by Ali bef
 - Missing from simple-icons (e.g. Playwright): use a generic icon instead.
 - Illustration kind (clipboard, laptop_code, laptop_list, laptop_async, flow) is picked per slide to fit the content.
 - Status: template locked.
-- Every slide has a faint large React logo bleeding off the top-right corner as background watermark (spec `"bg"`, defaults to the glyph logo), so the topic reads as React at first glance.
